@@ -1,0 +1,67 @@
+<ion-header>
+</ion-header>
+
+<ion-content class="dark">
+  <img src={{this.pic}} />
+
+  <ion-segment value="all" [(ngModel)]="segmentModel" scrollable="true"  (ionChange)="segmentChanged($event)" >
+    <ion-segment-button value="all">
+      <ion-label><h2>Status</h2></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="work">
+      <ion-label><h2>Work / Activity</h2></ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="note">
+      <ion-label><h2>Cost</h2></ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-card *ngIf="segmentModel === 'all'" align="center" color="transparent">
+    <ion-button color="success"  (click)="this.openModal()"  fill="clear"><h5>Password</h5></ion-button>
+  </ion-card>
+
+  <ion-card *ngIf="segmentModel === 'work'">
+    <ion-toolbar color="transparent">
+      <h5><ion-label align="center">Work / Activity</ion-label></h5>
+      <ion-buttons slot="end">
+        <ion-button color="warning" expand="clear" (click)="this.add()" ><h3>ADD</h3></ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <ion-card *ngFor="let item of list" >
+    <ion-card-content align="center">
+      <ion-toolbar  color="transparent">
+        <ion-icon  name="trash"size="large"slot="end" color="danger" (click)="presentConfirm(item)"></ion-icon>
+        <ion-card-title>{{item.topic}}</ion-card-title>
+        <p> {{item.des}}</p><br>
+        <ion-label>type  {{item.icon}}</ion-label><br>
+
+        </ion-toolbar>
+    </ion-card-content>
+    </ion-card>
+  </ion-card>
+
+  <ion-card *ngIf="segmentModel === 'note'"  >
+    <ion-toolbar color="transparent">
+      <h5><ion-label slot="center"> Cost</ion-label></h5>
+      <ion-buttons slot="end">
+        <ion-button color="warning" expand="clear" (click)="this.notetext()" ><h3>ADD</h3></ion-button>
+        <ion-icon name="create-outline"size="large"color="warning"></ion-icon>
+      </ion-buttons>
+
+    </ion-toolbar>
+
+    <ion-card *ngFor="let item of Note"color="transparent" >
+    <ion-card>
+
+      <ion-toolbar  color="transparent">
+        <ion-icon  name="close-outline"size="large"slot="end" color="danger" (click)="presentdel(item)"></ion-icon>
+      <ion-card-title >{{item.date}}</ion-card-title>
+      <p style="white-space: pre-wrap;"align="center" >{{item.text}}</p>
+    </ion-toolbar>
+
+    </ion-card>
+      </ion-card>
+  </ion-card>
+
+</ion-content>

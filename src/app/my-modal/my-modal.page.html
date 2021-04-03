@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-button color="danger"  (click)="this.closeModal()"  expand="block" fill="clear"><h5>Close</h5></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+
+    <ion-item *ngFor="let my of form">
+      <ion-item-sliding  >
+        <ion-item >
+          <ion-thumbnail slot="start">
+            <img style="width: 100%;"  src ="{{my.pic}}">
+          </ion-thumbnail>
+          <ion-label  align="center" >{{my.name}}</ion-label>
+      </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="clear" (click)="send(my)" >Show</ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item>
+  </ion-list>
+  </ion-content>

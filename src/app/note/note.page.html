@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" expand="clear" (click)="this.back()" > Back</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="success" expand="clear" (click)="this.done()" > Done</ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-item>
+    <ion-label position="stacked">Detail</ion-label>
+    <ion-textarea [(ngModel)]="this.gettext" placeholder={{text}}></ion-textarea>
+  </ion-item>
+
+  <ion-label>Date</ion-label>
+  <ion-datetime value="" placeholder="วัน/เดือน/ปี" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" [(ngModel)]="this.getdate"></ion-datetime>
+
+</ion-content>

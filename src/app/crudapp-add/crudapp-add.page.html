@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="danger" expand="clear" (click)="this.back()" > Back</ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button color="success" expand="clear" (click)="this.add()" > Done</ion-button>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item>
+  <ion-label position="stacked">Topic</ion-label>
+  <ion-input  [(ngModel)]="this.gettopic" [(ngModel)]="newMsg1"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label position="stacked">Detail</ion-label>
+  <ion-textarea [(ngModel)]="this.getdes" [(ngModel)]="newMsg2"></ion-textarea>
+</ion-item>
+
+
+<ion-radio-group>
+<ion-item>
+  <ion-label>Type</ion-label>
+  <ion-select value="notifications" interface="action-sheet" [(ngModel)]="this.geticon" [(ngModel)]="newMsg3">
+    <ion-select-option value="Work">Work</ion-select-option>
+    <ion-select-option value="Activity">Activity</ion-select-option>
+
+  </ion-select>
+</ion-item>
+</ion-radio-group>
+
+</ion-content>

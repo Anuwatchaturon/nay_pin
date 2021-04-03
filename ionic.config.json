@@ -1,5 +1,7 @@
 {
   "name": "nay_pin",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
